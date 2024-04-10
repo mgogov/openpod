@@ -1,0 +1,3 @@
+Manually generated as groudtruth from present to past using the Podcast Summary Pro GPT on OpenAI with the GPT4 model on a paid GPT Plus subscription.
+
+Initially used the default prompt "Summarize this podcast transcript for me", then started developing a prompt, specified in prompt.txt
