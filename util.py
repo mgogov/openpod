@@ -9,8 +9,8 @@ from llama_index.node_parser import SentenceWindowNodeParser
 from llama_index import VectorStoreIndex, StorageContext, load_index_from_storage
 from llama_index import ServiceContext
 from llama_index.llms import OpenAI
-
-logging.basicConfig(level=logging.INFO)
+from llama_index.indices.postprocessor import MetadataReplacementPostProcessor
+from llama_index.indices.postprocessor import SentenceTransformerRerank
 
 def get_openai_api_key():
     _ = load_dotenv(find_dotenv())
@@ -76,3 +76,17 @@ def get_index(doc, service_context, reindex=False):
         logging.info("Index loaded.")
 
     return index
+
+def get_query_engine(index, postprocessors=[]):
+    postprocessor = MetadataReplacementPostProcessor(
+        target_metadata_key="window"
+    )
+
+    reranker = SentenceTransformerRerank(
+        top_n=2, model="BAAI/bge-reranker-base"
+    )
+    engine = index.as_query_engine(
+        similarity_top_k=6, node_postprocessors=[postprocessor, reranker]
+    )
+
+    return engine
