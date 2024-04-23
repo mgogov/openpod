@@ -5,26 +5,25 @@ import argparse
 import logging
 
 from llama_index.core import Document
-import llama_index.core
 
 # set debug level to debug
 logging.basicConfig(level=logging.DEBUG)
 
-def setup_rag():
+def setup_rag(reindex=False):
     doc = util.summaries_doc()
     node_parser = util.get_node_parser(doc.text)
     llm = util.get_openai_llm()
     nodes = node_parser.get_nodes_from_documents([Document(text=doc.text)])
     context = util.get_service_context(llm, node_parser)
-    index = util.get_index(doc, context)
+    index = util.get_index(doc, context, reindex=reindex)
     query_engine = util.get_query_engine(index)
 
     return query_engine
 
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
-def chat():
-    query_engine = setup_rag()
+def chat(reindex=False):
+    query_engine = setup_rag(reindex=reindex)
 
     # loop over questions from stdin and answer them
     while True:
@@ -47,7 +46,8 @@ def setup_argparser():
     # parser.add_argument('--help', action='help', help='Show this help message')
     parser.add_argument('--eval', action='store_true', help='Evaluate how well the LLM is answering the benchmark questions')
     parser.add_argument('--chat', action='store_true', help='Chat with the podcast')
-    
+    parser.add_argument('--reindex', action='store_true', help='Force reindexing of the podcast data')
+
     return parser
 
 def main():
@@ -60,7 +60,7 @@ def main():
         parser.exit()
 
     if args.chat:
-        chat()
+        chat(reindex=args.reindex)
 
     if args.eval:
         # TODO implement
