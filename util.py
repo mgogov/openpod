@@ -4,13 +4,13 @@ import glob
 import logging
 
 from dotenv import load_dotenv, find_dotenv
-from llama_index import Document
-from llama_index.node_parser import SentenceWindowNodeParser
-from llama_index import VectorStoreIndex, StorageContext, load_index_from_storage
-from llama_index import ServiceContext
-from llama_index.llms import OpenAI
-from llama_index.indices.postprocessor import MetadataReplacementPostProcessor
-from llama_index.indices.postprocessor import SentenceTransformerRerank
+from llama_index.core import Document
+from llama_index.core.node_parser import SentenceWindowNodeParser
+from llama_index.core import VectorStoreIndex, StorageContext, load_index_from_storage
+from llama_index.core import ServiceContext
+from llama_index.llms.openai import OpenAI
+from llama_index.core.indices.postprocessor import MetadataReplacementPostProcessor
+from llama_index.core.indices.postprocessor import SentenceTransformerRerank
 
 def get_openai_api_key():
     _ = load_dotenv(find_dotenv())
@@ -23,7 +23,7 @@ def get_openai_llm():
 
     return llm
 
-from llama_index import SimpleDirectoryReader
+from llama_index.core import SimpleDirectoryReader
 
 def summaries_doc():
     reader = SimpleDirectoryReader(

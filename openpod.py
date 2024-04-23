@@ -4,7 +4,7 @@ import os
 import argparse
 import logging
 
-from llama_index import Document
+from llama_index.core import Document
 import llama_index.core
 
 # set debug level to debug
