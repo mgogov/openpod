@@ -5,9 +5,10 @@ Talk to your podcast transcripts.
 ## Installation
 To install and run this project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/mgogov/openpod.git`
-2. Navigate to the project directory: `cd openpod`
-3. Create a mamba environment from `requirements.txt` and activate it:
+1. [Install Mamba](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html) in order  to install reqired dependencies.
+2. Clone the repository: `git clone https://github.com/mgogov/openpod.git`
+3. Navigate to the project directory: `cd openpod`
+4. Create a mamba environment from `requirements.txt` and activate it:
 
 ```
 mamba create -n openpod
@@ -15,10 +16,23 @@ mamba activate openpod
 pip install -r requirements.txt
 ```
 
-## Usage
-Run `main.py` to start chatting with your podcast transcripts:
+## Available LLMs and related setup
+Currently only OpenAI's `gpt-3.5-turbo` is used.
+
+Provide a `.env` with the following content in the home dir:
 ```
-python main.py
+OPENAI_API_KEY=<your_API_key>
+```
+
+## Usage
+```
+$ python openpod.py [-h] [--eval] [--chat] [--reindex]
+
+options:
+  -h, --help  show this help message and exit
+  --eval      Evaluate how well the LLM is answering the benchmark questions
+  --chat      Chat with the podcast
+  --reindex   Force reindexing of the podcast data
 ```
 
 ## Contributing
