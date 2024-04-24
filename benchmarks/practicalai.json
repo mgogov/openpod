@@ -1,0 +1,44 @@
+{
+    "evals": [
+        {
+            "q": "How does Humanloop handle prompts?",
+            "a": "Humanloop handles prompts by providing tools that support collaborative workflows and manage the lifecycle of AI applications. This enables the integration of both technical and non-technical team members in the prompt management process, ensuring effective collaboration and input from domain experts and product managers."
+        },
+        {
+            "q": "What concerns are there around the usage of Devin?",
+            "a": "Concerns around the usage of Devin include skepticism about its effectiveness and autonomy in software engineering tasks, potential for AI-induced costs due to resource mismanagement, and the emphasis on AI as an augmentation tool rather than a replacement for human developers."
+        },
+        {
+            "q": "Is anyone doing anything to prevent fraudsters using AI to fake a person's voice over the phone and trick the other side into doing something?",
+            "a": "The FCC has taken action against the use of AI voice clones in robocalls, particularly those attempting to misrepresent public figures, as a measure to prevent fraudsters from using AI to fake a person's voice over the phone and deceive individuals into taking certain actions."
+        },
+        {
+            "q": "What about making models smaller via distillation? Who talked about it and what were their main points?",
+            "a": "Mark Kurtz discussed making models smaller via distillation. He highlighted how distillation, along with other techniques like pruning and quantization, plays a crucial role in optimizing AI models by reducing their size and increasing processing speed without compromising performance."
+        },
+        {
+            "q": "What issues are guests reporting when it comes to using vector databases?",
+            "a": "Guests are reporting several critical trade-offs when it comes to using vector databases. These include considerations such as purpose-built versus incumbent vendors, external embedding pipelines, indexing speed versus querying speed, recall versus latency, and in-memory versus on-disk indexing. These trade-offs play a significant role in the selection process of a vector database solution."
+        },
+        {
+            "q": "What kind of use cases and tools are there for financial analysis?",
+            "a": "The use cases for financial analysis include leveraging Large Language Models (LLMs) through tools like Llama Index. Additionally, tools like Llama Index can be used to conduct deep financial analyses, providing a significant application area for finance and investment professionals."
+        },
+        {
+            "q": "How to choose a vector database?",
+            "a": "Consider critical trade-offs such as purpose-built versus incumbent vendors, external embedding pipelines, indexing speed versus querying speed, recall versus latency, and in-memory versus on-disk indexing when selecting a vector database solution. These factors play a significant role in determining the most suitable vector database for your specific needs."
+        },
+        {
+            "q": "What's the point of Kaggle competitions? ",
+            "a": "The point of Kaggle competitions is to provide a platform for individuals to engage in data science challenges, allowing them to enhance their skills, learn from practical experience, and collaborate with others in the field. Additionally, for companies, Kaggle competitions can be utilized as a tool for identifying and recruiting talented data scientists based on their practical skills and teamwork abilities."
+        },
+        {
+            "q": "Can AI replace traditional search?",
+            "a": "AI has the potential to replace traditional search by leveraging generative AI to understand user intent and context, providing more accurate and relevant search results. This shift towards AI-driven search engines like You.com aims to revolutionize how users interact with information online, moving beyond link-driven results to deliver information directly based on user needs and preferences."
+        },
+        {
+            "q": "What are guests saying about GPU utilization?",
+            "a": "Guests are saying that Brev.dev is the most delightful or easiest experience to run anything on a GPU in the cloud, emphasizing its ease of use and the positive impact on AI development workflows."
+        }
+    ]
+}
