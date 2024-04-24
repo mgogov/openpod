@@ -1,29 +1,19 @@
 import util
-import json
+import rag
 import os
 import argparse
 import logging
+import sys
 
 from llama_index.core import Document
 
-# set debug level to debug
-logging.basicConfig(level=logging.DEBUG)
-
-def setup_rag(reindex=False):
-    doc = util.summaries_doc()
-    node_parser = util.get_node_parser(doc.text)
-    llm = util.get_openai_llm()
-    nodes = node_parser.get_nodes_from_documents([Document(text=doc.text)])
-    context = util.get_service_context(llm, node_parser)
-    index = util.get_index(doc, context, reindex=reindex)
-    query_engine = util.get_query_engine(index)
-
-    return query_engine
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
 def chat(reindex=False):
-    query_engine = setup_rag(reindex=reindex)
+    llm = rag.get_openai_llm(util.get_openai_api_key())
+    query_engine = rag.setup(rag.summaries_doc(), llm, reindex=reindex)
 
     # loop over questions from stdin and answer them
     while True:
