@@ -9,7 +9,7 @@ import llm as llm_util
 
 from llama_index.core import Document
 
-# logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
 def setup_argparser():

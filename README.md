@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ```
 
 ## Available LLMs and related setup
-Currently only OpenAI's `gpt-3.5-turbo` is used.
+Currently only OpenAI's `gpt-3.5-turbo` and `gpt-4` are available.
 
 Provide a `.env` with the following content in the home dir:
 ```
@@ -26,13 +26,17 @@ OPENAI_API_KEY=<your_API_key>
 
 ## Usage
 ```
-$ python openpod.py [-h] [--eval] [--chat] [--reindex]
+$ python openpod.py [-h] [--eval] [--chat] [--reindex] [--llm {openai-gpt-3.5-turbo,openai-gpt-4}]
+
+OpenPod command line interface.
 
 options:
-  -h, --help  show this help message and exit
-  --eval      Evaluate how well the LLM is answering the benchmark questions
-  --chat      Chat with the podcast
-  --reindex   Force reindexing of the podcast data
+  -h, --help            show this help message and exit
+  --eval                Evaluate how well the LLM is answering the benchmark questions
+  --chat                Chat with the podcast
+  --reindex             Force reindexing of the podcast data
+  --llm {openai-gpt-3.5-turbo,openai-gpt-4}
+                        Specify the LLM to use
 ```
 
 ## Contributing
