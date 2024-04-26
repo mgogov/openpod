@@ -2,3 +2,5 @@
 __pycache__
 .vscode
 index_storage
+.streamlit
+default.sqlite

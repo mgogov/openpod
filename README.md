@@ -26,17 +26,21 @@ OPENAI_API_KEY=<your_API_key>
 
 ## Usage
 ```
-$ python openpod.py [-h] [--eval] [--chat] [--reindex] [--llm {openai-gpt-3.5-turbo,openai-gpt-4}]
+$ python openpod.py usage: openpod [-h] [--chat] [--reindex] [--llm {openai-gpt-3.5-turbo,openai-gpt-4}] [--eval] [--eval-id EVAL_ID]
+               [--eval-reset-db]
 
 OpenPod command line interface.
 
 options:
   -h, --help            show this help message and exit
-  --eval                Evaluate how well the LLM is answering the benchmark questions
   --chat                Chat with the podcast
   --reindex             Force reindexing of the podcast data
   --llm {openai-gpt-3.5-turbo,openai-gpt-4}
                         Specify the LLM to use
+  --eval                Evaluate how well the LLM is answering the benchmark questions
+  --eval-id EVAL_ID     The ID to be used for the evaluation
+  --eval-reset-db       Whether to reset the evaluation DB
+
 ```
 
 ## Contributing
