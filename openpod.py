@@ -17,10 +17,14 @@ def setup_argparser():
 
     parser.add_argument('--chat', action='store_true', help='Chat with the podcast')
     parser.add_argument('--reindex', action='store_true', help='Force reindexing of the podcast data')
-    parser.add_argument('--llm', choices=[llm_util.Providers.OPENAI_GPT_35_TURBO.value, llm_util.Providers.OPENAI_GPT_4.value], default=llm_util.Providers.DEFAULT.value, help='Specify the LLM to use')
+    parser.add_argument(
+        '--llm',
+        choices=[llm_util.Providers.OPENAI_GPT_35_TURBO.value, llm_util.Providers.OPENAI_GPT_4.value],
+        default=llm_util.Providers.DEFAULT.value, help='Specify the LLM to use'
+    )
     parser.add_argument('--eval', action='store_true', help='Evaluate how well the LLM is answering the benchmark questions')
-    parser.add_argument('--eval-id', action='store_true', help='The ID to be used for the evaluation', default="<default_id>")
-    parser.add_argument('--eval-reset-db', action='store_true', help='Whether to reset the evaluation DB', default="true")
+    parser.add_argument('--eval-id', type=str, help='The ID to be used for the evaluation', default="<default_id>")
+    parser.add_argument('--eval-reset-db', action='store_true', help='Whether to reset the evaluation DB')
 
     return parser
 
@@ -53,7 +57,7 @@ def main():
         chat.run(query_engine)
 
     if args.eval:
-        eval.run(query_engine, id=args.eval_id)
+        eval.run(query_engine, reset_eval_db=args.eval_reset_db, id=args.eval_id)
 
 if __name__ == "__main__":
     main()

@@ -61,7 +61,7 @@ def run_evals(evals, query_engine, id):
             print(f"Actual response: {response}")
             print(f"Reference response: {eval['a']}")
 
-def run(query_engine, reset_eval_db=True, id="<default>"):
+def run(query_engine, reset_eval_db=False, id="<default>"):
     evals = read_evals()
 
     if reset_eval_db:
