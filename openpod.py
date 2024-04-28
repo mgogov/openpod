@@ -41,7 +41,7 @@ def main():
         print("Please specify at least one action to perform: one of --eval, --chat, or --reindex.")
         parser.exit(-1)
 
-    if args.eval_id and not args.eval:
+    if args.eval_id != "<default_id>" and not args.eval:
         print("--eval-id can only be specified if --eval is used")
         parser.exit(-1)
 
